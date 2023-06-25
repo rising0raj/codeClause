@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<body>
+    <div class="container">
+        <div id="newtask">
+            <input type="text" placeholder="Task to be done.....">
+            <button id="push">Add</button>
+        </div>
+        <div id="task">
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        document.querySelector('#push').onclick = function() {
+            if(document.querySelector('#newtask input').value.length == 0){
+                alert("Please enter a task ....")
+            }
+            else{
+                document.querySelector('#task').innerHTML += `
+                <div class="tas">
+                    <span id="taskname">
+                        ${document.querySelector('#newtask input').value}
+                    </span>
+                    <button class="delete">
+                        <i class ="far fa-trash-alt"></i>
+                        </button>
+                        </div>
+                `;
+                var current_task = document.querySelectorAll(".delete");
+                for(var i=0; i<current_task.length;i++){
+                    current_task[i].onclick = function(){
+                        this.parentNode.remove();
+                    }
+                }
+            }
+        }
+    </script>
+
+
+
+</body>
+</html>
